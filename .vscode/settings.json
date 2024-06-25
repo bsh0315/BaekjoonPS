@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "algorithm": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "ostream": "cpp"
     }
 }
