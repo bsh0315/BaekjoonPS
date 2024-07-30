@@ -6,8 +6,8 @@
 
 using namespace std;
 
-void binarySearch(vector<int> arr, int key){
-
+void binarySearch(vector<int> arr, int key, int size){
+    
 }
 
 void swap(int &i, int &j, int temp){
@@ -25,7 +25,7 @@ void quickSort(vector<int>& arr, int left, int right){
             do ++i; while(arr[i] < pivot);
             do --j; while(arr[j] > pivot);
 
-            if(i<j) swap(arr[i], arr[j], temp);
+            if(i<j) swap(arr[i], arr[j]);
         
         } while(i<j);
 
@@ -64,7 +64,7 @@ int main(){
     cout << "찾고자하는 key값을 입력하세요 : ";
     cin >> key;
 
-    binarySearch(arr, key);
+    binarySearch(arr, key,size);
 
 
 

@@ -8,6 +8,8 @@
 
 using namespace std;
 
+
+
 void bubbleSort(vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n-1; i++) {
@@ -65,6 +67,28 @@ void quickSort(vector<int>& arr, int low, int high) {
         quickSort(arr, pi + 1, high);
     }
 }
+
+template <class T>
+void quickSort_2(vector<T>& arr, int left, int right){
+    
+    if(left<right){
+        T pivot = arr[left];
+        int i = left, j = right+1;
+        do{
+            do ++i; while(arr[i] < pivot);
+            do --j; while(arr[j] > pivot);
+
+            if(i<j) swap(arr[i], arr[j]);
+        
+        } while(i<j);
+
+    swap(arr[left], arr[j]);
+
+    quickSort(arr, left, j-1);
+    quickSort(arr, j+1, right);
+    }
+};
+
 
 void merge(vector<int>& arr, int l, int m, int r) {
     int n1 = m - l + 1;
@@ -141,7 +165,7 @@ void heapSort(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> dataSizes = {100, 1000, 10000, 100000};
+    vector<int> dataSizes = {100, 1000, 10000, 100000, 1000000};
     for (int dataSize : dataSizes) {
         vector<int> data(dataSize);
         generate(data.begin(), data.end(), rand);
@@ -173,6 +197,13 @@ int main() {
         quickSort(quickData, 0, dataSize - 1);
         end = clock();
         cout << "Quick Sort on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
+        
+        //Quick Sort_2
+        vector<int> quickData_2 = data;
+        start = clock();
+        quickSort(quickData, 0, dataSize - 1);
+        end = clock();
+        cout << "Quick Sort_2 on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
 
         // Merge Sort
         vector<int> mergeData = data;
