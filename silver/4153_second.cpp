@@ -1,4 +1,6 @@
+// 직각삼각형 판별 문제. 
 // 다른 풀이 sort 함수 이용.
+
 #include <bits/stdc++.h>
 using namespace std;
 
