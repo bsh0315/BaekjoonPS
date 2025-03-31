@@ -1,7 +1,6 @@
 // 2839 설탕배달
 // 내가 기존에 짠 코드보다 시간복잡도가 낮음.
 
-
 #include <iostream>
 
 using namespace std;

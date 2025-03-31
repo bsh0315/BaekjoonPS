@@ -14,7 +14,7 @@ int main(){
 
     printf("%d\n", change(N, B, size));
     
-
+    
     return 0;
 }
 

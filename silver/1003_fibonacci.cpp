@@ -1,3 +1,7 @@
+// 1003 피보나치 함수
+// fibonacci(0), fibonacci(1)이 호출되는 횟수 역시 피보나치 수열을 이룸.
+
+
 #include<iostream>
 using namespace std;
 
@@ -24,8 +28,8 @@ int main(){
             cout << '1' << ' ' << '0' << endl;
         }
         else {
-            cout << fibonacci(arr[i]-1) << ' ' << fibonacci(arr[i]);
-        }
+            cout << fibonacci(arr[i]-1) << ' ' << fibonacci(arr[i]) << endl;
+        } 
     }
 
     
