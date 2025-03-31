@@ -1,3 +1,6 @@
+// 터렛 문제
+// 두 지점으로부터의 각각의 반경으로 생성되는 두 원간의 교점의 개수가 중요함.
+
 #include<iostream>
 #include<cmath>
 using namespace std;
