@@ -1,5 +1,6 @@
-#include<iostream>
-#include<vector>
+// 헤당 헤더는 어지간한 c++ 라이브러리들을 모두 포함함.
+#include<bits/stdc++.h>
+
 using namespace std;
 
 #define size 5
@@ -15,6 +16,6 @@ int main(){
 
     for(int element: arr){
         cout << element << '\n';
-    }
+    } 
 
 }

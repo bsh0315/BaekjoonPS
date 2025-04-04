@@ -12,6 +12,8 @@ int main() {
     // 2부터 sqrt(M)까지의 소수를 구해서 [N, M] 구간에서 배수 제거
     for (int i = 2; i * i <= M; ++i) {
         for (int j = max(i * i, ((N + i - 1) / i) * i); j <= M; j += i) {
+            //((N + i - 1) / i) * i)은 N 이상인 i의 최소 배수를 의미함.
+            // max()함수를 이용하는 것은, i의 배수 중에서 더 큰 수를 이용하기 위함임.
             primes_bool[j - N] = false;
         }
     }
