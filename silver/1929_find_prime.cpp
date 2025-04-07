@@ -1,3 +1,5 @@
+// 1929 소수구하기
+
 #include <bits/stdc++.h>
 using namespace std;
 
