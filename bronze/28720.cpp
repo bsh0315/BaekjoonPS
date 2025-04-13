@@ -17,26 +17,26 @@ int main(){
         
     }
     
-    for(int i = 0; i< size; ++i){
-        cout << arr2[i] << endl;
-    }
     int next = 0;
-    for(int i = 0; i< size && arr2[i] != 0;++i) {
-        if(i == 0){
-            next = arr2[i] + 3;
+    for(int i = 0; i< size ;++i) {
+        if(arr2[i] != 0){
+            if(i == 0){
+                next = arr2[i] + 3;
+            }
+            else if(i == 1){
+                next = arr2[i] + 2;
+            }
+            else {
+                next = arr2[i] + 1;
+            }
+        }
+        else{
             continue;
         }
-        else if(i == 1){
-            next = arr2[i] + 2;
-            continue;
-        }
-        else {
-            next = arr2[i] + 1;
-            continue;
-        }
+        
 
     }
-    cout << next << endl;
+
     if(next % 3 == 0 && next % 5 ==0){
         cout << "FizzBuzz" << '\n';   
     }
