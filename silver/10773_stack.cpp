@@ -1,3 +1,4 @@
+// 10773 제로(자료구조, stack 관련 문젠젠)
 #include<bits/stdc++.h>
 using namespace std;
 
