@@ -11,16 +11,18 @@ int partitioning(int arr[], int low, int high){
     int i = low -1;
     for(int j = low; j<high; ++j){
         if(pivot > arr[j]){
-            ++i;
-            swap(arr[i], arr[j]);
+            swap(arr[++i], arr[j]);
         }
     }
-    swap(arr[high], arr[i+1]);
+    if(i+1 != high){  // i+1과 high가 같은경우는 swap x
+        swap(arr[high], arr[i+1]);
+    }
     return i+1;
 }
 
 void quickSort(int arr[], int low, int high){
-    if(low < high){
+    if(low < high){ // 정렬할 범위가 1개 이하거나 값이 뒤집어지면 정렬하면 안됨.
+                    // 재귀의 종료조건.
         int p = partitioning(arr, low, high);
 
         quickSort(arr, low, p-1);
@@ -58,7 +60,7 @@ int main() {
     int arr[] = {8,3,1,7,0,10,2};
     int size = sizeof(arr)/sizeof(int);
 
-    if(size <= 10){
+    if(size <= 1){
         cout << "정렬 전 배열" << '\n';
         printArray(arr, size);
         insertSort(arr, size);
