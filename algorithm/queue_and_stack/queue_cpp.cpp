@@ -3,7 +3,7 @@
  * 알게된점
  * queue 클래스에서 pop()은 불완전함.
  * 만약 push를 2번하고, pop()을 3번 했을 때
- * size는 0이 아니라 이상한 값이 출력됨. 즉 pop()을 할 때는
+ * size()는 0이 아니라 이상한 값이 출력됨. 즉 pop()을 할 때는
  * 항상 queue의 size가 0 이상일 때만 실시해야함.
  */
 #include<bits/stdc++.h>
