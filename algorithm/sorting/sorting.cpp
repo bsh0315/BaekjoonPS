@@ -69,25 +69,21 @@ void quickSort(vector<int>& arr, int low, int high) {
 }
 
 template <class T>
-void quickSort_2(vector<T>& arr, int left, int right){
-    
-    if(left<right){
+void quickSort_2(vector<T>& arr, int left, int right) {
+    if (left < right) {
         T pivot = arr[left];
-        int i = left, j = right+1;
-        do{
-            do ++i; while(arr[i] < pivot);
-            do --j; while(arr[j] > pivot);
+        int i = left, j = right;
+        while (i < j) {
+            while (i <= right && arr[i] <= pivot) ++i;
+            while (j >= left && arr[j] > pivot) --j;
+            if (i < j) swap(arr[i], arr[j]);
+        }
+        swap(arr[left], arr[j]);
 
-            if(i<j) swap(arr[i], arr[j]);
-        
-        } while(i<j);
-
-    swap(arr[left], arr[j]);
-
-    quickSort(arr, left, j-1);
-    quickSort(arr, j+1, right);
+        quickSort_2(arr, left, j - 1);
+        quickSort_2(arr, j + 1, right);
     }
-};
+}
 
 
 void merge(vector<int>& arr, int l, int m, int r) {
@@ -170,38 +166,21 @@ int main() {
         vector<int> data(dataSize);
         generate(data.begin(), data.end(), rand);
 
-        // Bubble Sort
-        vector<int> bubbleData = data;
-        clock_t start = clock();
-        bubbleSort(bubbleData);
-        clock_t end = clock();
-        cout << "Bubble Sort on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
+        
 
-        // Insertion Sort
-        vector<int> insertionData = data;
-        start = clock();
-        insertionSort(insertionData);
-        end = clock();
-        cout << "Insertion Sort on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
-
-        // Selection Sort
-        vector<int> selectionData = data;
-        start = clock();
-        selectionSort(selectionData);
-        end = clock();
-        cout << "Selection Sort on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
+        
 
         // Quick Sort
         vector<int> quickData = data;
-        start = clock();
+        clock_t start = clock();
         quickSort(quickData, 0, dataSize - 1);
-        end = clock();
+        clock_t end = clock();
         cout << "Quick Sort on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
         
         //Quick Sort_2
         vector<int> quickData_2 = data;
         start = clock();
-        quickSort(quickData, 0, dataSize - 1);
+        quickSort_2(quickData_2, 0, dataSize - 1);
         end = clock();
         cout << "Quick Sort_2 on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
 
@@ -218,6 +197,27 @@ int main() {
         heapSort(heapData);
         end = clock();
         cout << "Heap Sort on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
+
+        // Bubble Sort
+        vector<int> bubbleData = data;
+         start = clock();
+        bubbleSort(bubbleData);
+        end = clock();
+        cout << "Bubble Sort on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
+
+        // Insertion Sort
+        vector<int> insertionData = data;
+         start = clock();
+        insertionSort(insertionData);
+         end = clock();
+        cout << "Insertion Sort on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
+
+        // Selection Sort
+        vector<int> selectionData = data;
+        start = clock();
+        selectionSort(selectionData);
+        end = clock();
+        cout << "Selection Sort on " << dataSize << " elements took " << double(end - start) / CLOCKS_PER_SEC << " seconds." << endl;
 
         cout << "--------------------------------------" << endl;
     }
