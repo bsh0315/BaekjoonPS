@@ -9,6 +9,8 @@ int main(){
         pivot = n / i;
         distance = i/2;
         sum = 0;
+
+        // l 값이 짝수일 때
         if(i % 2 == 0){
             for(int j = pivot - distance + 1; j <= pivot + distance; ++j){
                 sum += j;
@@ -25,7 +27,7 @@ int main(){
             }
         }
 
-        
+        // l 값이 홀수일 때
         else{
             for(int j = pivot - distance; j <= pivot + distance; ++j){
                 sum += j;
