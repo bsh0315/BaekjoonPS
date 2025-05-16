@@ -1,4 +1,6 @@
+// 양방향 큐 예제 코드
 // c++ deque 활용.
+
 #include<bits/stdc++.h>
 using namespace std;
 

@@ -17,8 +17,8 @@ int main(){
 
     for(int i = 0; i<n; ++i){ // 원소를 2개씩 짝지어서 cnt값을 업데이트함.
         for(int j = 0; j<i; ++j){
-            if(arr1[j] < arr1[i]){
-                cnt[i] = max(cnt[i], cnt[j] +1);
+            if(arr1[j] < arr1[i] && cnt[i] < cnt[j] + 1){
+                cnt[i] = cnt[j] + 1;
             }
         }
     }
