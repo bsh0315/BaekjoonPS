@@ -6,7 +6,6 @@ int main(){
     cin >> n >> m;
 
     vector<int> train(n, 0);
-    vector<int> cnt(n, 0);
     int order = 0;
 
     for(int i = 0; i<m; ++i){
@@ -17,18 +16,17 @@ int main(){
         switch(order){
             case 1: 
                 cin >> n_tr >> n_person;
-                train[n_tr-1] |= (1 << n_person);
-                cnt[n_tr-1]++;
+                train[n_tr-1] |= (1 << (n_person-1));
                 break;
 
             case 2:
                 cin >> n_tr >> n_person;
-                train[n_tr-1] &= ~(1 << n_person);
+                train[n_tr-1] &= ~(1 << (n_person-1));
                 break;
 
             case 3:
                 cin >> n_tr;
-                train[n_tr-1] = (train[n_tr-1] << 1) & (1 << 21 - 2);
+                train[n_tr-1] = (train[n_tr-1] << 1) & ((1 << 20) - 1);
                 break;
 
             case 4:
