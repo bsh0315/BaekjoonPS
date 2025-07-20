@@ -4,33 +4,33 @@ using namespace std;
 int main(){
     int n;
     cin >> n;
-    vector<int> cnt(n);
-    vector<int> arr(n, 0);
+    vector<int> arr(n);
+    vector<int> result(n, 0);
+
     for(int i = 0; i<n; ++i){
-        cin >> cnt[i];
+        cin >> arr[i];
     }
 
-    arr[cnt[0]] = 1;
-    int count = 0;
-    for(int i = n-1; i>0; --i){
-        int pivot = i+1; // 키가 몇인지 저장.
-        count = 0;
-        for(int j = 0; j<n-1 ; ++j){
-
-            if(arr[j] > pivot && arr[j] != 0){
-                ++count;
+    int zero_cnt = 0;
+    int loc = 0;
+    for(int i = 0; i<n; ++i){
+        zero_cnt = 0;
+        for(int j = 0; j<n; ++j){
+            if(result[j] == 0){
+                ++zero_cnt;
             }
-            if(count == cnt[i]){
-                for(int k = j; k<n-2 && arr[k] != 0; ++k){
-                    int temp = arr[j+1];
-                    arr[j+1] = arr[j];
-                }
-                arr[n-i-1] = i+1;  
+
+            if(zero_cnt == arr[i]+1){
+                loc = j;
+                break;
             }
         }
-        
-        
-        
+        result[loc] = i+1;
+           
     }
 
-}
+    for(int i = 0; i<n; ++i){
+        cout << result[i] << ' ';
+    }
+
+} 

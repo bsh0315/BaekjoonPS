@@ -17,9 +17,7 @@ bool Check(vector<int>& day, int n, int m, int mid){
 }
 
 int Search(vector<int>& day, int n, int m){
-    int low = *max_element(day.begin(), day.end());
-    long long sum = accumulate(day.begin(), day.end(), 0LL);
-    int high = sum; 
+    int low = *max_element(day.begin(), day.end()), high = 10000;
     int k = 0;
 
     while(low <= high){
