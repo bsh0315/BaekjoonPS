@@ -28,7 +28,7 @@ public:
         int prev = -1e9;
 
         // DFS 함수 호출 스택에서 특정 숫자가 pop될 때마다 그 수를 prev를 기억하는것이 중요함.
-        //
+        // 이 수를 기준으로 i값을 변화시키며 코드 진행.
         for(int i = start; i<n; ++i){
             if(prev == input_arr[i] ){
                 continue;
