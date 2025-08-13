@@ -1,21 +1,22 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "build",
-        "type": "shell",
-        "command": "g++",
-        "args": [
-          "-g",
-          "main.cpp",
-          "-o",
-          "main"
-        ],
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        }
-      }
-    ]
-  }
-  
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build cpp",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-g",              // 디버깅 정보 포함
+        "${file}",         // 현재 열린 파일
+        "-o",
+        "${fileBasenameNoExtension}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [ "$gcc" ],
+      "detail": "Build C++ file"
+    }
+  ]
+}

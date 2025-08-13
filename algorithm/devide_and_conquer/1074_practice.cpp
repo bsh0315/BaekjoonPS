@@ -1,5 +1,6 @@
 // 분할 정복 기법 이용.
 
+
 #include<bits/stdc++.h>
 using namespace std;
 
